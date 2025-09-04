@@ -1,50 +1,46 @@
-# Project Blueprint: Julio Bobadilla - Data Analytics & Data Science Portfolio
+# Data Portfolio Application
 
 ## Overview
 
-This document outlines the development plan and feature set for a personal portfolio website for Julio Bobadilla, a Data Analyst and Data Scientist. The goal is to create a production-ready application that showcases his projects, skills, and expertise using a modern, performant, and maintainable tech stack.
+A web application for data professionals to showcase their projects. Users can sign in, add, and manage their data projects.
 
-The application now features a modern, responsive dashboard layout built with `react-grid-layout`. This dashboard will serve as the main interface for showcasing projects and data visualizations.
+## Features
 
-## Core Technologies
+### Implemented
 
-*   **Framework**: Next.js 14+ (App Router)
-*   **Language**: TypeScript
-*   **Styling**: TailwindCSS with shadcn/ui
-*   **Layout**: React Grid Layout
-*   **Content**: MDX for projects and blog posts
-*   **Charts**: react-chartjs-2
-*   **Tables**: react-table
-*   **Deployment**: Firebase Hosting
-*   **Backend**: Firebase (Firestore, Storage, Auth)
+*   **Authentication:**
+    *   Sign in with email and password.
+    *   Sign in with Google.
+    *   Sign out.
+    *   Protected routes using middleware.
+*   **Dashboard:**
+    *   Display a welcome message to the user.
+    *   Show a list of the user's data projects fetched from Firestore.
+    *   Include a button to add a new project.
+*   **Project Creation:**
+    *   A form to add a new project with fields for title, description, and technologies.
+    *   Server Action to handle form submission and save data to Firestore.
+*   **Project Details:**
+    *   A page to display the details of a single project.
+*   **Data Storage:**
+    *   Use Firestore to store and manage project data.
+*   **CRUD Operations:**
+    *   Full Create, Read, Update, and Delete functionality for projects.
+*   **UI Components:**
+    *   Created a reusable `Badge` component for displaying tags and labels.
+*   **Bug Fixes:**
+    *   Resolved a styling issue on the authentication pages by importing the global stylesheet.
+    *   Corrected `useFormStatus` and `useActionState` hook usage to prevent runtime errors.
 
----
+## Completed: Visual Design Enhancement
 
-## Current Plan: Phase 2 - Dashboard Implementation
-
-### Actionable Steps:
-
-1.  **Integrate `react-chartjs-2` and `react-table`**: Replace the placeholder cards with actual data visualizations.
-2.  **Create dynamic data fetching**: Fetch project data from a data source (e.g., a JSON file, or later, a database) to populate the dashboard.
-3.  **Implement MDX for project details**: Create a system for rendering detailed project pages using MDX.
-4.  **Add Authentication**: Implement user authentication using Firebase Auth to protect the dashboard.
-5.  **Set up Firestore**: Use Firestore to store and manage project data.
-
----
-
-## Completed: Phase 1 - Project Setup & Foundation
-
-*   **Initialized Project**: Set up the initial Next.js application with TypeScript and Tailwind CSS.
-*   **Installed Core Dependencies**:
-    *   `shadcn/ui` and its dependencies (`lucide-react`).
-    *   `react-grid-layout` for the dashboard layout.
-*   **Configured `shadcn/ui`**: Initialized `shadcn/ui` to set up the component library, styles, and utilities.
-*   **Established Project Structure**:
-    *   Restructured the project to use a `src` directory.
-    *   Created a `(site)` route group for the main application.
-    *   Moved global styles to a `styles` directory.
-*   **Set Up Basic Layout**:
-    *   Created a root layout and a site-specific layout.
-    *   Implemented a modern dashboard design using `react-grid-layout`.
-    *   Added `Card` and `Button` components from `shadcn/ui`.
-*   **Added Firebase to MCP**: Added the firebase server to the `.idx/mcp.json` file.
+*   **Modern Color Palette:**
+    *   Updated `tailwind.config.ts` with a vibrant and energetic color palette.
+*   **Global Styles:**
+    *   Applied a subtle noise texture to the background in `globals.css` for a premium feel.
+*   **Component Redesign:**
+    *   Redesigned the main page and other components to use the new styles, with improved layout, spacing, and typography.
+*   **Iconography:**
+    *   Incorporated `lucide-react` icons to enhance user understanding and navigation.
+*   **Interactive Elements:**
+    *   Add hover effects and shadows to buttons and cards to create a sense of depth and interactivity.
