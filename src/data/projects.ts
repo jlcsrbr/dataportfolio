@@ -1,23 +1,42 @@
 export const projectsData = [
   {
-    id: 1,
-    name: "Project Alpha",
-    description: "A project about data analysis.",
-    technologies: ["Python", "Pandas", "Matplotlib"],
-    year: 2023,
+    id: "sales-forecasting",
+    name: "Sales Forecasting",
+    description:
+      "Time-series forecasting (ARIMA/Prophet-style) with MAE/MAPE and forecast vs actuals.",
+    technologies: ["Python", "Pandas", "Statsmodels", "Prophet", "Matplotlib"],
+    year: 2024,
   },
   {
-    id: 2,
-    name: "Project Beta",
-    description: "A project about machine learning.",
-    technologies: ["Python", "Scikit-learn", "TensorFlow"],
-    year: 2023,
+    id: "customer-churn",
+    name: "Customer Churn",
+    description:
+      "EDA + classification narrative with feature importance and ROC-like evaluation.",
+    technologies: ["Python", "scikit-learn", "Pandas", "Seaborn"],
+    year: 2024,
   },
   {
-    id: 3,
-    name: "Project Gamma",
-    description: "A project about data visualization.",
-    technologies: ["JavaScript", "D3.js", "React"],
+    id: "cohort-retention",
+    name: "Cohort Retention",
+    description:
+      "Monthly cohorts with retention heatmap and actionable retention insights.",
+    technologies: ["Python", "Pandas", "NumPy"],
+    year: 2024,
+  },
+  {
+    id: "ab-test-pricing",
+    name: "A/B Test Pricing",
+    description:
+      "End-to-end test narrative: hypothesis, lift estimate, and simulated p-value.",
+    technologies: ["Python", "SciPy", "Pandas"],
+    year: 2024,
+  },
+  {
+    id: "nlp-reviews",
+    name: "NLP Reviews",
+    description:
+      "Word frequency and sentiment summary on product reviews (simulated).",
+    technologies: ["Python", "NLTK", "spaCy"],
     year: 2024,
   },
 ];
