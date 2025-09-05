@@ -12,6 +12,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useI18n } from "@/context/i18n";
 
 ChartJS.register(
   CategoryScale,
@@ -39,6 +40,7 @@ function mape(actual: number[], forecast: number[]) {
 }
 
 export default function SalesForecastingPage() {
+  const { t } = useI18n();
   const labels = [
     "Jan",
     "Feb",
@@ -86,7 +88,7 @@ export default function SalesForecastingPage() {
     responsive: true,
     plugins: {
       legend: { position: "top" as const },
-      title: { display: true, text: "Forecast vs Actuals" },
+      title: { display: true, text: t("project.sales.chartTitle") },
       tooltip: { intersect: false, mode: "index" as const },
     },
     interaction: { intersect: false, mode: "index" as const },
@@ -96,20 +98,17 @@ export default function SalesForecastingPage() {
     <div className="min-h-screen bg-primary text-white px-4 py-10 md:px-8">
       <Card className="max-w-5xl mx-auto">
         <CardHeader>
-          <CardTitle>Sales Forecasting</CardTitle>
+          <CardTitle>{t("project.sales.title")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <p className="text-gray-300">
-            ARIMA/Prophet-style workflow: cleaned seasonality and trend, trained on
-            the last 12 months, and produced a one-step-ahead forecast.
-          </p>
+          <p className="text-gray-300">{t("project.sales.desc")}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="rounded-lg bg-secondary p-4 shadow-card">
-              <div className="text-sm text-gray-400">MAE</div>
+              <div className="text-sm text-gray-400">{t("metric.MAE")}</div>
               <div className="text-2xl font-bold">{metrics.mae}</div>
             </div>
             <div className="rounded-lg bg-secondary p-4 shadow-card">
-              <div className="text-sm text-gray-400">MAPE</div>
+              <div className="text-sm text-gray-400">{t("metric.MAPE")}</div>
               <div className="text-2xl font-bold">{metrics.mape}%</div>
             </div>
           </div>
@@ -121,4 +120,3 @@ export default function SalesForecastingPage() {
     </div>
   );
 }
-

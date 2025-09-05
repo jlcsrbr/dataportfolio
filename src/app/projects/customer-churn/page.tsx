@@ -13,6 +13,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useI18n } from "@/context/i18n";
 
 ChartJS.register(
   CategoryScale,
@@ -26,6 +27,7 @@ ChartJS.register(
 );
 
 export default function CustomerChurnPage() {
+  const { t } = useI18n();
   const featureLabels = [
     "Tenure",
     "MonthlyCharges",
@@ -49,25 +51,21 @@ export default function CustomerChurnPage() {
     <div className="min-h-screen bg-primary text-white px-4 py-10 md:px-8">
       <Card className="max-w-5xl mx-auto">
         <CardHeader>
-          <CardTitle>Customer Churn</CardTitle>
+          <CardTitle>{t("project.churn.title")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <p className="text-gray-300">
-            EDA highlighted tenure and contract as key signals. A simple
-            tree-based classifier achieved strong separation with focus on
-            monthly charges and support frequency.
-          </p>
+          <p className="text-gray-300">{t("project.churn.desc")}</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Metric label="Accuracy" value={(classificationMetrics.accuracy * 100).toFixed(0) + "%"} />
-            <Metric label="Precision" value={(classificationMetrics.precision * 100).toFixed(0) + "%"} />
-            <Metric label="Recall" value={(classificationMetrics.recall * 100).toFixed(0) + "%"} />
-            <Metric label="AUC" value={classificationMetrics.auc.toFixed(2)} />
+            <Metric label={t("metric.Accuracy")} value={(classificationMetrics.accuracy * 100).toFixed(0) + "%"} />
+            <Metric label={t("metric.Precision")} value={(classificationMetrics.precision * 100).toFixed(0) + "%"} />
+            <Metric label={t("metric.Recall")} value={(classificationMetrics.recall * 100).toFixed(0) + "%"} />
+            <Metric label={t("metric.AUC")} value={classificationMetrics.auc.toFixed(2)} />
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-secondary rounded-lg p-4">
-              <h3 className="mb-2 font-semibold">Feature Importance (mock)</h3>
+              <h3 className="mb-2 font-semibold">{t("project.churn.featureImportance")}</h3>
               <Bar
                 options={{
                   responsive: true,
@@ -87,7 +85,7 @@ export default function CustomerChurnPage() {
             </div>
 
             <div className="bg-secondary rounded-lg p-4">
-              <h3 className="mb-2 font-semibold">ROC-like curve (mock)</h3>
+              <h3 className="mb-2 font-semibold">{t("project.churn.rocTitle")}</h3>
               <Line
                 options={{
                   responsive: true,
@@ -126,4 +124,3 @@ function Metric({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
-
