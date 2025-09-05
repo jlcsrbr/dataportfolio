@@ -11,10 +11,12 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useI18n } from "@/context/i18n";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function NLPReviewsPage() {
+  const { t } = useI18n();
   const topWords = [
     { word: "quality", count: 128 },
     { word: "price", count: 112 },
@@ -54,21 +56,17 @@ export default function NLPReviewsPage() {
     <div className="min-h-screen bg-primary text-white px-4 py-10 md:px-8">
       <Card className="max-w-5xl mx-auto">
         <CardHeader>
-          <CardTitle>NLP – Reviews</CardTitle>
+          <CardTitle>{t("project.nlp.title")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <p className="text-gray-300">
-            Simulated analysis of product reviews: tokenization and basic
-            sentiment. Most frequent terms emphasize quality and price; overall
-            sentiment skews positive.
-          </p>
+          <p className="text-gray-300">{t("project.nlp.desc")}</p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-secondary rounded-lg p-4">
-              <h3 className="mb-2 font-semibold">Top words</h3>
+              <h3 className="mb-2 font-semibold">{t("project.nlp.topWords")}</h3>
               <Bar data={wordsData} options={{ responsive: true, plugins: { legend: { display: false } } }} />
             </div>
             <div className="bg-secondary rounded-lg p-4">
-              <h3 className="mb-2 font-semibold">Sentiment distribution</h3>
+              <h3 className="mb-2 font-semibold">{t("project.nlp.sentimentDistribution")}</h3>
               <Bar data={sentimentData} options={{ responsive: true, plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: (v: any) => `${v}%` } } } }} />
             </div>
           </div>
@@ -77,4 +75,3 @@ export default function NLPReviewsPage() {
     </div>
   );
 }
-

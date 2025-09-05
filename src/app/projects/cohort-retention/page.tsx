@@ -1,6 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useI18n } from "@/context/i18n";
 
 type Matrix = number[][]; // 0..1 retention
 
@@ -23,23 +24,21 @@ function colorFor(v: number) {
 }
 
 export default function CohortRetentionPage() {
+  const { t } = useI18n();
   return (
     <div className="min-h-screen bg-primary text-white px-4 py-10 md:px-8">
       <Card className="max-w-5xl mx-auto">
         <CardHeader>
-          <CardTitle>Cohort Retention</CardTitle>
+          <CardTitle>{t("project.cohort.title")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <p className="text-gray-300">
-            Monthly cohorts with 6-month retention. Heatmap highlights stable
-            early retention with opportunity around months 3–5.
-          </p>
+          <p className="text-gray-300">{t("project.cohort.desc")}</p>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr>
-                  <th className="text-left p-2 text-gray-400">Cohort</th>
+                  <th className="text-left p-2 text-gray-400">{t("table.cohortHeader")}</th>
                   {months.map((m) => (
                     <th key={m} className="text-center p-2 text-gray-400">
                       {m}
@@ -75,4 +74,3 @@ export default function CohortRetentionPage() {
     </div>
   );
 }
-
