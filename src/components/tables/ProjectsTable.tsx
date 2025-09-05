@@ -6,8 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useI18n } from "@/context/i18n";
 
 export const ProjectsTable = () => {
+  const { t } = useI18n();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projectsData.map((project) => (
@@ -27,7 +29,7 @@ export const ProjectsTable = () => {
             <span className="text-sm text-gray-500">{project.year}</span>
             <Button asChild variant="outline" size="sm">
               <Link href={`/projects/${project.id}`}>
-                View Project <ArrowRight className="ml-2 h-4 w-4" />
+                {t("actions.viewProject")} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
