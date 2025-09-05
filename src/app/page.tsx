@@ -24,7 +24,7 @@ export default function Dashboard() {
       <main className="flex-1">
         <section className="min-h-[80vh] flex flex-col items-center justify-center text-center p-8 bg-gradient-to-b from-primary to-secondary/80">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-white animate-glow-text">
+            <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-white animate-glow">
               Data Analyst & Data Scientist
             </h2>
             <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
