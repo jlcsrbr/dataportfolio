@@ -12,17 +12,6 @@ export default function Dashboard() {
   const { t } = useI18n();
   return (
     <div className="flex flex-col min-h-screen bg-primary text-white">
-      <header className="sticky top-0 z-50 flex items-center justify-between h-20 px-4 md:px-8 bg-primary/80 backdrop-blur-sm border-b border-accent/20">
-        <Link href="/">
-          <h1 className="text-2xl font-bold text-accent cursor-pointer">Julio Bobadilla</h1>
-        </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="#projects" className="text-lg font-medium hover:text-accent transition-colors">{t("nav.projects")}</Link>
-          <Link href="#about" className="text-lg font-medium hover:text-accent transition-colors">{t("nav.about")}</Link>
-          <Link href="#skills" className="text-lg font-medium hover:text-accent transition-colors">{t("nav.skills")}</Link>
-        </nav>
-      </header>
-
       <main className="flex-1">
         <section className="min-h-[80vh] flex flex-col items-center justify-center text-center p-8 bg-gradient-to-b from-primary to-secondary/80">
           <div className="max-w-4xl mx-auto">

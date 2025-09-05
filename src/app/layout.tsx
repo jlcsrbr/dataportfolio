@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/react-grid-layout.css";
 import { I18nProvider } from "@/context/i18n";
-import LanguageToggle from "@/components/LanguageToggle";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-primary bg-noise`}>
         <I18nProvider>
-          {/* Floating toggle available on all pages */}
-          <LanguageToggle variant="floating" />
+          <Header />
           {children}
         </I18nProvider>
       </body>
