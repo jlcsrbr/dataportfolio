@@ -6,8 +6,10 @@ import { SkillsChart } from "@/components/charts/SkillsChart";
 import { ProjectsTable } from "@/components/tables/ProjectsTable";
 import { User, ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
+import { useI18n } from "@/context/i18n";
 
 export default function Dashboard() {
+  const { t } = useI18n();
   return (
     <div className="flex flex-col min-h-screen bg-primary text-white">
       <header className="sticky top-0 z-50 flex items-center justify-between h-20 px-4 md:px-8 bg-primary/80 backdrop-blur-sm border-b border-accent/20">
@@ -15,9 +17,9 @@ export default function Dashboard() {
           <h1 className="text-2xl font-bold text-accent cursor-pointer">Julio Bobadilla</h1>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="#projects" className="text-lg font-medium hover:text-accent transition-colors">Projects</Link>
-          <Link href="#about" className="text-lg font-medium hover:text-accent transition-colors">About</Link>
-          <Link href="#skills" className="text-lg font-medium hover:text-accent transition-colors">Skills</Link>
+          <Link href="#projects" className="text-lg font-medium hover:text-accent transition-colors">{t("nav.projects")}</Link>
+          <Link href="#about" className="text-lg font-medium hover:text-accent transition-colors">{t("nav.about")}</Link>
+          <Link href="#skills" className="text-lg font-medium hover:text-accent transition-colors">{t("nav.skills")}</Link>
         </nav>
       </header>
 
@@ -25,19 +27,19 @@ export default function Dashboard() {
         <section className="min-h-[80vh] flex flex-col items-center justify-center text-center p-8 bg-gradient-to-b from-primary to-secondary/80">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-white animate-glow">
-              Data Analyst & Data Scientist
+              {t("hero.title")}
             </h2>
             <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-              I transform complex data into clear, actionable insights. Explore my work and see how I can help you make data-driven decisions.
+              {t("hero.desc")}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">
                 <Link href="#projects">
-                  View My Work <ArrowRight className="ml-2" />
+                  {t("hero.viewWork")} <ArrowRight className="ml-2" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="mailto:julio.bobadilla.sample@gmail.com">Contact Me</Link>
+                <Link href="mailto:julio.bobadilla.sample@gmail.com">{t("hero.contactMe")}</Link>
               </Button>
             </div>
           </div>
@@ -45,7 +47,7 @@ export default function Dashboard() {
 
         <section id="projects" className="py-20 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-4xl font-bold text-center mb-12">My Projects</h3>
+            <h3 className="text-4xl font-bold text-center mb-12">{t("sections.myProjects")}</h3>
             <ProjectsTable />
           </div>
         </section>
@@ -54,12 +56,10 @@ export default function Dashboard() {
           <section id="about">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-3"><User /> About Me</CardTitle>
+                <CardTitle className="flex items-center gap-3"><User /> {t("sections.aboutMe")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg">
-                  I&apos;m a passionate data analyst and data scientist with a knack for weaving compelling narratives from data. My goal is to help businesses grow by uncovering insights and opportunities hidden within their datasets. I&apos;m always eager to learn new technologies and take on challenging projects.
-                </p>
+                <p className="text-lg">{t("about.text")}</p>
               </CardContent>
             </Card>
           </section>
@@ -67,7 +67,7 @@ export default function Dashboard() {
           <section id="skills">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-3"><Star /> Skills</CardTitle>
+                <CardTitle className="flex items-center gap-3"><Star /> {t("sections.skills")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <SkillsChart />
@@ -79,8 +79,8 @@ export default function Dashboard() {
       </main>
 
       <footer className="flex flex-col items-center justify-center h-24 bg-secondary/80 border-t border-accent/20">
-        <p className="text-lg text-gray-400">© 2024 Julio Bobadilla. All rights reserved.</p>
-        <p className="text-sm text-gray-500 mt-2">Made with Next.js and Firebase</p>
+        <p className="text-lg text-gray-400">{t("footer.rights")}</p>
+        <p className="text-sm text-gray-500 mt-2">{t("footer.madeWith")}</p>
       </footer>
     </div>
   );
